@@ -42,8 +42,6 @@ function patchSelectorFn<K extends string>(
   });
 }
 
-const nonEscapedPopoverSelector = /(^|[^\\]):popover-open\b/g;
-
 function hasLayerSupport() {
   return typeof globalThis.CSSLayerBlockRule === 'function';
 }
@@ -75,7 +73,7 @@ ${useLayer ? '@layer popover-polyfill {' : ''}
     display: revert;
   }
 
-  :where([anchor].\\:popover-open) {
+  :where([anchor].popover-open) {
     inset: auto;
   }
 
@@ -106,7 +104,7 @@ ${useLayer ? '@layer popover-polyfill {' : ''}
     }
   }
 
-  :where([popover]:not(.\\:popover-open)) {
+  :where([popover]:not(.popover-open)) {
     display: none;
   }
 ${useLayer ? '}' : ''}
@@ -142,10 +140,7 @@ export function apply() {
 
   function rewriteSelector(selector: string) {
     if (selector?.includes(':popover-open')) {
-      selector = selector.replace(
-        nonEscapedPopoverSelector,
-        '$1.\\:popover-open',
-      );
+      selector = selector.replace(/:popover-open\b/g, '.popover-open');
     }
     return selector;
   }

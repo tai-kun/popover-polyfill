@@ -5,16 +5,16 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-      time: '04:00'
-      timezone: America/New_York
+      time: '07:30'
+      timezone: 'Asia/Tokyo'
 
   - package-ecosystem: npm
     directory: '/'
     versioning-strategy: increase
     schedule:
       interval: monthly
-      time: '04:00'
-      timezone: America/New_York
+      time: '07:30'
+      timezone: 'Asia/Tokyo'
     groups:
       npm-major-upgrades:
         update-types:

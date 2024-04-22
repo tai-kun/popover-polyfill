@@ -3,9 +3,7 @@
   "version": "0.4.1",
   "description": "Popover Attribute Polyfill",
   "license": "BSD-3-Clause",
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": true,
   "author": "OddBird <birds@oddbird.net> (oddbird.net)",
   "repository": {
     "type": "git",
@@ -108,5 +106,8 @@
     "*.{json,yml,md,html}": [
       "prettier --write --ignore-unknown"
     ]
+  },
+  "volta": {
+    "node": "20.12.2"
   }
 }

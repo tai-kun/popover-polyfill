@@ -105,3 +105,5 @@ dist
 
 # MacOS sidecar files
 .DS_Store
+
+.history
